@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-around mt-2 " style="height: 400px">
+
+  <div class="border row col-sm-5 d-flex justify-content-center">
+    <div class="container-fluid">
+
+      <div class="row h-50">
+        <div class="col bg-success d-flex justify-content-center">
+          <div class="card mt-1" style="width: 18rem;">
+
+              <img class="card-img-top" [attr.src]="actorPicUrl[0]" alt="Card image cap">
+
+            <div class="card-body">
+              <p class="card-text text-center" *ngIf="actorPics[0].actor !== undefined"><b>{{actorName[0]}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col bg-secondary d-flex justify-content-center">
+          <div class="card  mt-1" style="width: 18rem;">
+            <img class="card-img-top" [src]="actorPicUrl[1]" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text text-center" *ngIf="actorPics[1].actor !== undefined"><b>{{actorName[1]}}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="row h-50">
+        <div class="col bg-danger d-flex justify-content-center">
+          <div class="card  mt-1" style="width: 18rem;">
+            <img class="card-img-top" [src]="actorPicUrl[2]" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text text-center" *ngIf="actorPics[2].actor !== undefined"><b>{{actorName[2]}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="col bg-info d-flex justify-content-center">
+          <div class="card  mt-1" style="width: 18rem;">
+            <img class="card-img-top" [src]="actorPicUrl[3]" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text text-center" *ngIf="actorPics[3].actor !== undefined"><b>{{actorName[3]}}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>     
+
+    </div>
+  </div>
+
+  <div class="border row col-md-5 d-flex justify-content-center" style="background-color: rgba(179, 218, 218, 0.1);">
+    <h1 class="my-auto">{{ quizedMovie.title }}</h1>
+  </div>
+
+</div>
+
+<div class="container mt-3">
+  <div class="row ml-2" style="background-color: grey;">
+
+    <button mat-mini-fab color="accent" class="ml-2 mr-2 my-auto" (click)="previousPicture(selectedActor)">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <mat-form-field style="background-color: grey;">
+      <mat-label>Actor</mat-label>
+        <mat-select [(ngModel)]="selectedActor" (selectionChange)="selectActor($event.value)">
+          <mat-option *ngFor="let actor of actors, index as index" [value]="index">
+            {{actor.actor}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-mini-fab color="accent"  class="ml-2 my-auto" (click)="nextPicture(selectedActor)">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+
+  </div>
+</div>
