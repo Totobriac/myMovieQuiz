@@ -12,6 +12,8 @@ export class PlotQuestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showQuestion = true
+
   @Input() quizedMovie;
 
   editPlot = "false"
@@ -19,6 +21,10 @@ export class PlotQuestionComponent implements OnInit {
   enableEdition () {
     console.log(this.editPlot)
     this.editPlot = "true"
+  }
+
+  onSelectedSection(value) {
+    this.showQuestion = value
   }
 
 }

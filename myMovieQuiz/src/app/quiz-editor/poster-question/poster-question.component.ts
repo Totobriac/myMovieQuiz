@@ -7,12 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PosterQuestionComponent implements OnInit {
 
-  @Input() quizedMovie;
-  
-  constructor() { }
+  @Input() quizedMovie;  
 
   ngOnInit(): void {
   }
+
+  showQuestion = true;
   blurring: any;
   color: any;
   rotation: any;
@@ -31,9 +31,11 @@ export class PosterQuestionComponent implements OnInit {
     if (this.rotation === "rotate(180deg)") {
       this.rotation = "rotate(0deg)"
     } else {
-      this.rotation = "rotate(180deg)"
-    }
-    
+      this.rotation = "rotate(180deg)"}    
+  }
+
+  onSelectedSection(value) {
+    this.showQuestion = value
   }
 
 }
